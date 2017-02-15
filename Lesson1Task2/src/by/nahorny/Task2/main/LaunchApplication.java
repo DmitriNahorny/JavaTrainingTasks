@@ -1,17 +1,19 @@
-package by.nahorny.Task2.main;
+package by.nahorny.task2.main;
 
+        import java.util.List;
         import java.util.Scanner;
-        import by.nahorny.Task2.user_input.UserInputInterface;
-        import by.nahorny.Task2.compute.SumDigitCompute;
-        import by.nahorny.Task2.report.DigitsSumReport;
-        import by.nahorny.Task2.file_reader.FileReader;
-        import by.nahorny.Task2.report_to_file.ExportReport;
+        import by.nahorny.task2.uinput.UserInputInterface;
+        import by.nahorny.task2.compute.SumDigitCompute;
+        import by.nahorny.task2.report.DigitsSumReport;
+        import by.nahorny.task2.fread.InputFileRead;
+        import by.nahorny.task2.freport.ExportReport;
 /**
  * Created by Dmitri_Nahorny on 2/10/2017.
  */
 public class LaunchApplication {
     public static void main (String[] args)
     {
+        //Create objects for the console input-output
         UserInputInterface userInput = new UserInputInterface();
         int inputResult = userInput.userValue();
 
@@ -21,10 +23,14 @@ public class LaunchApplication {
         DigitsSumReport resultReport = new DigitsSumReport();
         resultReport.printReport(resultSum);
 
-        FileReader customReader = new FileReader();
-        String inputFileValue = customReader.readFromFile();
+        //Create objects for the file input-output
+        InputFileRead customReader = new InputFileRead();
+        List<String> inputFileValue = customReader.readFromFile();
+
+        SumDigitCompute computeFileValues  = new SumDigitCompute();
+        List<int[]> resultDigitSum = computeFileValues.computeSum(inputFileValue);
 
         ExportReport customExport = new ExportReport();
-        customExport.printReport(inputFileValue);
+        customExport.printReport(resultDigitSum);
     }
 }

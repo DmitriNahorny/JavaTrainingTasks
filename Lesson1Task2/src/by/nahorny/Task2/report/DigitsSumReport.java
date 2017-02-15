@@ -1,4 +1,4 @@
-package by.nahorny.Task2.report;
+package by.nahorny.task2.report;
 
 /**
  * Created by Dmitri_Nahorny on 2/10/2017.

@@ -1,1 +1,5 @@
-The sum of digits from file is: 16
+The sum of digits for 3764 is 20
+The sum of digits for 3273 is 15
+The sum of digits for 9267 is 24
+The sum of digits for 1000 is 1
+

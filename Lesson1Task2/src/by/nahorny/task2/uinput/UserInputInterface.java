@@ -1,8 +1,8 @@
-package by.nahorny.Task2.user_input;
+package by.nahorny.task2.uinput;
 
 import java.io.IOException;
 import java.util.Scanner;
-import by.nahorny.Task2.checker.NumberChecker;
+import by.nahorny.task2.checker.NumberChecker;
 
 /**
  * Created by Dmitri_Nahorny on 2/9/2017.
