@@ -23,6 +23,7 @@ public class ExportReport {
 
         try(PrintWriter out = new PrintWriter(OUTPUT_FILE_NAME)){
             out.println(resultReportString);
+            out.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
