@@ -1,11 +1,6 @@
 package by.nahorny.task2.freport;
 
-import by.nahorny.task2.checker.NumberChecker;
-import by.nahorny.task2.compute.SumDigitCompute;
-
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 

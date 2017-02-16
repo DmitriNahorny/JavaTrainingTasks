@@ -1,4 +1,8 @@
-package by.nahorny.task2.fread;
+package by.nahorny.lesson1.fread;
+
+/**
+ * Created by Dmitri_Nahorny on 2/16/2017.
+ */
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -6,12 +10,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Dmitri_Nahorny on 2/10/2017.
- */
 public class InputFileRead {
     private final String INPUT_FILE_NAME = "./resource/input.txt";
-    public List<String> readFromFile (){
+    public List<String> getRadiusFromFile (){
         List<String> inputNumbers = new ArrayList<String>();
         try {
             FileInputStream in = new FileInputStream(INPUT_FILE_NAME);

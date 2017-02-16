@@ -1,0 +1,7 @@
+The circle with the radius 2 has perimeter 12.57 and area 12.57
+The circle with the radius 1 has perimeter 6.28 and area 3.14
+The circle with the radius 10 has perimeter 62.83 and area 314.16
+The circle with the radius 7 has perimeter 43.98 and area 153.94
+The circle with the radius 15 has perimeter 94.25 and area 706.86
+The circle with the radius 55 has perimeter 345.58 and area 9503.32
+

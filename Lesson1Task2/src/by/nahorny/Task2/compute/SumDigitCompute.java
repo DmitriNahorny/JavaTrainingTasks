@@ -1,6 +1,5 @@
 package by.nahorny.task2.compute;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import by.nahorny.task2.checker.NumberChecker;

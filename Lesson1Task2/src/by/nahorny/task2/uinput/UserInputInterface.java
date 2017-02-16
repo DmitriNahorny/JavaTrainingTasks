@@ -1,6 +1,5 @@
 package by.nahorny.task2.uinput;
 
-import java.io.IOException;
 import java.util.Scanner;
 import by.nahorny.task2.checker.NumberChecker;
 

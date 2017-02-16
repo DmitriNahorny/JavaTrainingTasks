@@ -1,7 +1,6 @@
 package by.nahorny.task2.main;
 
         import java.util.List;
-        import java.util.Scanner;
         import by.nahorny.task2.uinput.UserInputInterface;
         import by.nahorny.task2.compute.SumDigitCompute;
         import by.nahorny.task2.report.DigitsSumReport;
