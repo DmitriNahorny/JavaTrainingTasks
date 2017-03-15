@@ -1,0 +1,16 @@
+cargo	1			volvo	12.50	5.3
+qwerty	1	1	1	1
+passenger	2	MERCEDES	7.6	4
+passenger	2	2	2
+cargo	3	MERCEDES	17.50	15.3
+cargo	5	MERCEDES	cost	capacity
+passenger	4	GEELY	12.6	6
+cargo	6	MRCDS	17.50	15.3
+passenger	5	volvo	6.2	4
+passenger	6	volvo	4.0	4
+passenger	7	MERCEDES	9.5	4
+passenger	8	GEELY	7.2	6
+cargo	9	GEELY	13.50	10.3
+cargo	10	MERCEDES	18.80	8.3
+cargo	11	volvo	12.50	25.3
+cargo	12	MERCEDES	13.70	15.3

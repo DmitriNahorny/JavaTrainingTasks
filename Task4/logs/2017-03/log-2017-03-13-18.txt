@@ -1,0 +1,1 @@
+2017-03-13 18:17:24 [main] FATAL by.nahorny.taxipark.fread.InputFileRead - java.io.FileNotFoundException: .\resource\input1.txt (The system cannot find the file specified)

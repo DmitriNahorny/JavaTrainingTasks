@@ -35,6 +35,8 @@ public class Main {
                 System.out.println();
             }
         }
-        catch (NumberFormatException e) {e.getStackTrace();}
+        catch (NumberFormatException e) {
+            e.getStackTrace();
+        }
     }
 }
