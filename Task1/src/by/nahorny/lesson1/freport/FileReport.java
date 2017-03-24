@@ -28,7 +28,7 @@ public class FileReport {
             }
         }
         else {
-            resultReportString = "There is no correct radius stored in the input file";
+            resultReportString = "There is no correct radius stored in the input file.";
         }
 
         try(PrintWriter out = new PrintWriter(OUTPUT_FILE_NAME)){
