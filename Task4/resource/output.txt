@@ -1,2 +1,2 @@
-The whole taxi park passenger capacity is:
-28
+The next cargo taxi have capacity between 10 and 20:
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/tariffs" xmlns:tns="http://www.example.com/tariffs" elementFormDefault="qualified">
+    <element name="tariff" type="tns:Tariff"></element>
+    <element name="parameter" type="tns:Parameter"></element>
+    <element name="call-prices" type="tns:Call-prices"></element>
+    <element name="tariffs">
+        <complexType>
+            <sequence>
+                <element ref="tns:tariff" minOccurs="1" maxOccurs="unbounded" />
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="Tariff">
+        <sequence>
+            <element name="operator-name" type="string" />
+            <element name="payroll" type="nonNegativeInteger" />
+            <element name="call-prices" type="tns:Call-prices" />
+            <element name="sms-price" type="nonNegativeInteger" />
+            <element name="parameter" type="tns:Parameter" />
+        </sequence>
+        <attribute name="name" type="string" />
+    </complexType>
+    <complexType name="Parameter">
+        <sequence>
+            <element name="favourite-number" type="nonNegativeInteger" />
+            <element name="charging">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="second"></enumeration>
+                        <enumeration value="12-seconds"></enumeration>
+                        <enumeration value="minute"></enumeration>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="subscription-fee" type="nonNegativeInteger" />
+        </sequence>
+    </complexType>
+    <complexType name="Call-prices">
+        <sequence>
+            <element name="within-network-call-price" type="nonNegativeInteger" />
+            <element name="outside-network-call-price" type="nonNegativeInteger"/>
+            <element name="stationary-call-price" type="nonNegativeInteger" />
+        </sequence>
+    </complexType>
+</schema>

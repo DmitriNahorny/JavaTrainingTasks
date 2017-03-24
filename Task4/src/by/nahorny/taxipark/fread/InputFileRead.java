@@ -34,7 +34,8 @@ public class InputFileRead {
             inputCarsInfo.add(resultString);
             in.close();
         } catch (FileNotFoundException e) {
-            logger.fatal(e);
+            logger.fatal(e.getMessage());
+            throw new RuntimeException();
         } catch (IOException e) {
             logger.fatal(e);
         }
