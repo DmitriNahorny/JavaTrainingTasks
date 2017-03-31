@@ -2,6 +2,7 @@ package by.nahorny.task5.chain;
 
 import by.nahorny.task5.composite.Component;
 import by.nahorny.task5.composite.Composite;
+import by.nahorny.task5.exception.TextParsingException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,17 +20,22 @@ public class ParagraphParser implements AbstractParser  {
     }
 
     @Override
-    public void parseText(String text, Component paragraphComposite){
+    public void parseText(String text, Component paragraphComposite) throws TextParsingException{
 
-        String sentenceRegExp = "([A-Z[0-9]])([\\w,;:\\-\\s\'\"]*)(.!?)";
-        Pattern sentencePattern = Pattern.compile(sentenceRegExp);
-        Matcher sentenceMatcher = sentencePattern.matcher(text);
+        if (childParser != null) {
+            String sentenceRegExp = "([A-Z[0-9]])([\\w,;:\\-\\s\'\"]*)(.!?)";
+            Pattern sentencePattern = Pattern.compile(sentenceRegExp);
+            Matcher sentenceMatcher = sentencePattern.matcher(text);
 
-        while(sentenceMatcher.find()) {
-            String sentence = sentenceMatcher.group();
-            Composite sentenceComposite = new Composite();
-            paragraphComposite.addComponent(sentenceComposite);
-            childParser.parseText(sentence, sentenceComposite);
+            while (sentenceMatcher.find()) {
+                String sentence = sentenceMatcher.group();
+                Composite sentenceComposite = new Composite();
+                paragraphComposite.addComponent(sentenceComposite);
+                childParser.parseText(sentence, sentenceComposite);
+            }
+        }
+        else {
+            throw new TextParsingException("Child parser has not been instantiated for " + this.getClass().getSimpleName());
         }
     }
 }

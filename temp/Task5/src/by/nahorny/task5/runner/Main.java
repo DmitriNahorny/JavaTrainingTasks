@@ -5,13 +5,31 @@ import by.nahorny.task5.chain.ParagraphParser;
 import by.nahorny.task5.chain.SentenceParser;
 import by.nahorny.task5.chain.TextParser;
 import by.nahorny.task5.composite.Composite;
+import by.nahorny.task5.exception.TextParsingException;
+
+import by.nahorny.task5.reader.TextLoader;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
 
 /**
  * Created by Dmitri_Nahorny on 3/16/2017.
  */
 public class Main {
+
+    static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args){
-        String textToParse = "1P1S1, PP1'SS1. P1-S2 p1s2? P1S3.\tP2S1! P2S2 - p2s2.";
+
+        TextLoader loader = new TextLoader();
+        String textToParse = new String();
+        try {
+            textToParse = loader.readTextFromFile("./resource/text.txt");
+        } catch (IOException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        }
 
         TextParser customTextParser = new TextParser();
         ParagraphParser customParagraphParser = new ParagraphParser();
@@ -24,9 +42,11 @@ public class Main {
 
         Composite textComposite = new Composite();
 
-        customTextParser.parseText(textToParse, textComposite);
-
+        try {
+            customTextParser.parseText(textToParse, textComposite);
+        } catch (TextParsingException e) {
+            logger.log(Level.ERROR, e.getMessage());
+        }
         System.out.println(textComposite.toString());
-        System.out.println(textComposite.getChild(0));
     }
 }

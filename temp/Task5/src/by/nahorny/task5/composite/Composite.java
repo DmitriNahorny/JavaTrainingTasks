@@ -16,12 +16,12 @@ public class Composite implements Component {
 
     @Override
     public Component getChild(int index) {
-        return components.get(index);
+        return this.components.get(index);
     }
 
     @Override
     public void remove(Component cmp) {
-        components.remove(cmp);
+        this.components.remove(cmp);
     }
 
     @Override
@@ -33,5 +33,19 @@ public class Composite implements Component {
             sb.append(c.toString());
         }
         return sb.toString();
+    }
+
+    @Override
+    public int componentSize() {
+        return this.components.size();
+    }
+
+    @Override
+    public Component getCopy() {
+        Component compositeCopy = new Composite();
+        for (Component child:this.components) {
+            compositeCopy.addComponent(child.getCopy());
+        }
+        return compositeCopy;
     }
 }

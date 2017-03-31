@@ -1,10 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html><head><title>JSP Timing</title></head>
+<html>
+<head><title>XML parser</title></head>
 <body>
-<h5>Счетчик времени от запуска приложения до нажатия кнопки</h5>
-<jsp:useBean id="calendar" class="java.util.GregorianCalendar"/>
-<form name="Simple" action="result" method="POST">
-  <input type="hidden" name="time" value="${calendar.timeInMillis}"/>
-  <input type="submit" name="button" value="Посчитать время"/>
+<h5>Tariffs XML parser</h5>
+<form name="Simple" action="result" method="POST" enctype="multipart/form-data">
+  <input type="file" name="file"/>
+  <input type="text" name="parser"/>
+  <input type="submit" name="button" value="Parse XML file"/>
 </form>
-</body></html>
+</body>
+</html>

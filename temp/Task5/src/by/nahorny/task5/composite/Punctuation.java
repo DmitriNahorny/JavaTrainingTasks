@@ -31,4 +31,14 @@ public class Punctuation implements Component {
         return content;
     }
 
+    @Override
+    public int componentSize() {
+        return 0;
+    }
+
+    @Override
+    public Component getCopy() {
+        Component punctCopy = new Punctuation(this.content);
+        return punctCopy;
+    }
 }

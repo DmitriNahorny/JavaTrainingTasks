@@ -3,6 +3,7 @@ package by.nahorny.task5.chain;
 import by.nahorny.task5.composite.Component;
 import by.nahorny.task5.composite.Composite;
 import by.nahorny.task5.composite.Punctuation;
+import by.nahorny.task5.exception.TextParsingException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,20 +21,27 @@ public class SentenceParser implements AbstractParser {
     }
 
     @Override
-    public void parseText(String text, Component sentenceComposite){
+    public void parseText(String text, Component sentenceComposite) throws TextParsingException{
 
-        String lexemeRegExp = "([\\w\\-\'\"]+)([,;:\\s.?!])";
-        Pattern lexemePattern = Pattern.compile(lexemeRegExp);
-        Matcher lexemeMatcher = lexemePattern.matcher(text);
+        if (childParser != null) {
+            String lexemeRegExp = "([\\w\\-\'\"]+)([,;:\\s.?!])";
+            Pattern lexemePattern = Pattern.compile(lexemeRegExp);
+            Matcher lexemeMatcher = lexemePattern.matcher(text);
 
-        while(lexemeMatcher.find()) {
-            String lexeme = lexemeMatcher.group();
-            Composite lexemeComposite = new Composite();
-            sentenceComposite.addComponent(lexemeComposite);
-            childParser.parseText(lexeme, lexemeComposite);
+            while(lexemeMatcher.find()) {
+                String lexeme = lexemeMatcher.group();
+                Composite lexemeComposite = new Composite();
+                sentenceComposite.addComponent(lexemeComposite);
+                childParser.parseText(lexeme, lexemeComposite);
 
-            Punctuation space = new Punctuation(" ");
-            sentenceComposite.addComponent(space);
+                Punctuation space = new Punctuation(" ");
+                sentenceComposite.addComponent(space);
+            }
+
+            sentenceComposite.remove(sentenceComposite.getChild(sentenceComposite.componentSize() - 1));
+        }
+        else {
+            throw new TextParsingException("Child parser has not been instantiated for " + this.getClass().getSimpleName());
         }
     }
 }

@@ -7,13 +7,20 @@ import by.nahorny.task5.composite.Punctuation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
- * Created by pekarnya on 20.03.2017.
+ * Created by Dmitri_Nahorny on 20.03.2017.
  */
-public class LexemeParser implements AbstractParser {
+    public class LexemeParser implements AbstractParser{
+
+    static final Logger logger = LogManager.getLogger(LexemeParser.class);
+
     @Override
     public void setHandler(AbstractParser childParser){
-        //custom warning to implement
+        logger.log(Level.WARN, "Attempt to set handler for leaf parser");
     }
 
     @Override

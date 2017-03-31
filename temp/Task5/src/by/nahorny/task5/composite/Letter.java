@@ -27,6 +27,16 @@ public class Letter implements Component {
         return content;
     }
 
+    @Override
+    public int componentSize() {
+        return 0;
+    }
+
+    @Override
+    public Component getCopy() {
+        Component letterCopy = new Letter(this.content);
+        return letterCopy;
+    }
 
     public Letter(String content) {
         this.content = content;

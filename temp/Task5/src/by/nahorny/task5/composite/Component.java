@@ -8,4 +8,6 @@ public interface Component {
     Component getChild (int index);
     void remove (Component cmp);
     String toString();
+    int componentSize();
+    Component getCopy();
 }
