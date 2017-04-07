@@ -3,7 +3,11 @@ package by.nahorny.task5.chain;
 import by.nahorny.task5.composite.Component;
 import by.nahorny.task5.composite.Composite;
 import by.nahorny.task5.composite.Punctuation;
+import by.nahorny.task5.exception.LeafComponentOperationException;
 import by.nahorny.task5.exception.TextParsingException;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +18,9 @@ import java.util.regex.Pattern;
 public class TextParser implements AbstractParser {
 
     private AbstractParser childParser;
+    private final String PARAGRAPH_REG_EXP = "(\\t)(.+)(\\r\\n)";
+
+    static final Logger LOGGER = LogManager.getLogger(TextParser.class);
 
     @Override
     public void setHandler(AbstractParser childParser){
@@ -25,8 +32,7 @@ public class TextParser implements AbstractParser {
 
         if (childParser != null) {
 
-            String paragraphRegExp = "(\\t)(.+)(\\r\\n)";
-            Pattern paragraphPattern = Pattern.compile(paragraphRegExp);
+            Pattern paragraphPattern = Pattern.compile(PARAGRAPH_REG_EXP);
             Matcher paragraphMatcher = paragraphPattern.matcher(text);
 
             while (paragraphMatcher.find()){
@@ -43,7 +49,12 @@ public class TextParser implements AbstractParser {
                 textComposite.addComponent(lineSeparator);
             }
 
-            textComposite.remove(textComposite.getChild(textComposite.componentSize() - 1));
+            try {
+                textComposite.removeComponent(textComposite.getComponent(textComposite.componentSize() - 1));
+            } catch (LeafComponentOperationException e) {
+                LOGGER.log(Level.ERROR, "Attempt to get components of leaf component");
+            }
+
         }
         else {
             throw new TextParsingException("Child parser has not been instantiated for " + this.getClass().getSimpleName());

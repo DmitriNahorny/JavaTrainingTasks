@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 public class ParagraphParser implements AbstractParser  {
 
     private AbstractParser childParser;
+    private final String SENTENCE_REG_EXP = "([A-Z[0-9]])([\\w,;:\\-\\s\'\"]*)(.!?)";
 
     @Override
     public void setHandler(AbstractParser childParser){
@@ -23,8 +24,7 @@ public class ParagraphParser implements AbstractParser  {
     public void parseText(String text, Component paragraphComposite) throws TextParsingException{
 
         if (childParser != null) {
-            String sentenceRegExp = "([A-Z[0-9]])([\\w,;:\\-\\s\'\"]*)(.!?)";
-            Pattern sentencePattern = Pattern.compile(sentenceRegExp);
+            Pattern sentencePattern = Pattern.compile(SENTENCE_REG_EXP);
             Matcher sentenceMatcher = sentencePattern.matcher(text);
 
             while (sentenceMatcher.find()) {

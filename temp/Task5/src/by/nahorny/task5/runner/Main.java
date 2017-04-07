@@ -1,5 +1,6 @@
 package by.nahorny.task5.runner;
 
+import by.nahorny.task5.calculation.SentenceSorting;
 import by.nahorny.task5.chain.LexemeParser;
 import by.nahorny.task5.chain.ParagraphParser;
 import by.nahorny.task5.chain.SentenceParser;
@@ -19,16 +20,17 @@ import java.io.IOException;
  */
 public class Main {
 
-    static final Logger logger = LogManager.getLogger(Main.class);
+    static final Logger LOGGER = LogManager.getLogger(Main.class);
 
     public static void main(String[] args){
 
         TextLoader loader = new TextLoader();
-        String textToParse = new String();
+        String textToParse;
         try {
             textToParse = loader.readTextFromFile("./resource/text.txt");
         } catch (IOException e) {
-            logger.log(Level.ERROR, e.getMessage());
+            LOGGER.log(Level.ERROR, e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
 
         TextParser customTextParser = new TextParser();
@@ -45,8 +47,14 @@ public class Main {
         try {
             customTextParser.parseText(textToParse, textComposite);
         } catch (TextParsingException e) {
-            logger.log(Level.ERROR, e.getMessage());
+            LOGGER.log(Level.ERROR, e.getMessage());
         }
         System.out.println(textComposite.toString());
+
+        /*LexemeSorting ls = new LexemeSorting();
+        ls.sortText(textComposite);*/
+
+        SentenceSorting ss = new SentenceSorting();
+        ss.sortSentence(textComposite);
     }
 }

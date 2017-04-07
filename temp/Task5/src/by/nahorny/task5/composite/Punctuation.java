@@ -1,5 +1,7 @@
 package by.nahorny.task5.composite;
 
+import by.nahorny.task5.exception.LeafComponentOperationException;
+
 /**
  * Created by Dmitri_Nahorny on 3/16/2017.
  */
@@ -8,18 +10,16 @@ public class Punctuation implements Component {
     private String content;
 
     @Override
-    public void addComponent(Component cmp) {
-
+    public void addComponent(Component cmp){
     }
 
     @Override
-    public Component getChild(int index) {
-        throw new UnsupportedOperationException();
+    public Component getComponent(int index) throws LeafComponentOperationException{
+        throw new LeafComponentOperationException();
     }
 
     @Override
-    public void remove(Component cmp) {
-
+    public void removeComponent(Component cmp){
     }
 
     public Punctuation(String content) {

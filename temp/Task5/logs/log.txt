@@ -1,0 +1,1 @@
+2017-04-07 18:46:02 [main] ERROR test.by.nahorny.task5.LexemeSortingTest - .\resource1\text.txt (The system cannot find the path specified)

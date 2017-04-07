@@ -15,12 +15,12 @@ public class Composite implements Component {
     }
 
     @Override
-    public Component getChild(int index) {
+    public Component getComponent(int index) {
         return this.components.get(index);
     }
 
     @Override
-    public void remove(Component cmp) {
+    public void removeComponent(Component cmp) {
         this.components.remove(cmp);
     }
 

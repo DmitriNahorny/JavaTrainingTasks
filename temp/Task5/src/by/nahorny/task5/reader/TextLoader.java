@@ -24,7 +24,7 @@ public class TextLoader {
             sc.close();
         }
         catch (FileNotFoundException e) {
-            e.printStackTrace();
+            throw new FileNotFoundException(e.getMessage());
         }
 
         return result.toString();
