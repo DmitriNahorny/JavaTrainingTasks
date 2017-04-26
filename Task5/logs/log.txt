@@ -1,0 +1,1 @@
+2017-04-14 17:40:24 [main] ERROR by.nahorny.task5.runner.Main - .\resource1\text.txt (The system cannot find the path specified)
