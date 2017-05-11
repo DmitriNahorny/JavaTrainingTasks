@@ -1,4 +1,0 @@
-2017-04-06 19:39:29 [main] ERROR by.nahorny.task5.runner.Main - .\resource1\text.txt (The system cannot find the path specified)
-2017-04-06 19:39:49 [main] ERROR by.nahorny.task5.runner.Main - .\resource1\text.txt (The system cannot find the path specified)
-2017-04-06 19:40:20 [main] ERROR by.nahorny.task5.runner.Main - .\resource1\text.txt (The system cannot find the path specified)
-2017-04-06 19:40:50 [main] ERROR by.nahorny.task5.runner.Main - .\resource1\text.txt (The system cannot find the path specified)
